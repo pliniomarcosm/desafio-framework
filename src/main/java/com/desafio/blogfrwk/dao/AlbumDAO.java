@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.desafio.blogfrwk.bean.Album;
 
-//teste
 @Repository
 public interface AlbumDAO extends CrudRepository<Album, Long>{
 

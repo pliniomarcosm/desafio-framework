@@ -32,6 +32,8 @@ public class Post {
 	private String horarioFormatado;
 	@Transient
 	private Integer numeroComentarios;
+	@Transient
+	private String resumo;
 	
 	public Post() {}
 	
@@ -81,5 +83,10 @@ public class Post {
 	
 	public Integer getNumeroComentarios() {
 		return this.getComentarios().size();
+	}
+	
+	public String getResumo() {
+		if(this.conteudo.length() > 20) return this.conteudo.substring(0, 20);
+		else return this.conteudo.substring(0, this.conteudo.length());
 	}
 }
