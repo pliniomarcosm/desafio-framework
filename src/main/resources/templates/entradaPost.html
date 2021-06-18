@@ -79,22 +79,6 @@
     			<nav class="nav d-flex">
 			      <a class="p-2 link-secondary" th:href="@{/}">Posts          </a>
 			      <a class="p-2 link-secondary" th:href="@{/albums}">Álbuns   </a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			      <a class="p-2 link-secondary" th:href="@{/createPost}">Novo Post</a>
     			</nav>
   			</div>
 		</div>
@@ -114,24 +98,6 @@
 	      		</form>
 			</div>
   		</main>
-		
-						    <tr><td></td></tr>
-							<tr><td>
-									
-							</td></tr>
-								
-						</form>
-			            <tr th:each="post : ${posts}">
-				            <td th:text="${post.horarioFormatado}"></td>
-					        <td th:text="${post.assunto}"></td>
-					        <td th:text="${post.numeroComentarios}"></td>
-					        <td th:text="${post.resumo}"></td>
-					        <td>
-		                    	<a th:href="@{/entradaComentario/{idPost}(idPost=${post.id})}">View</a>
-		                    	<a th:href="@{/editPost/{id}(id=${post.id})}">Edit</a>
-		                        <a th:href="@{/deletePost/{id}(id=${post.id})}">Delete</a>
-			                </td>
-			            </tr>
 		<script>
 			var textarea = document.getElementById('conteudo');
 			sceditor.create(textarea, {
@@ -148,6 +114,5 @@
 				document.getElementById('theme-style').href = theme;
 			};
 		</script>
-
 	</body>
 </html>
