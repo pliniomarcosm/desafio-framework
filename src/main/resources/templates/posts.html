@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>frwk blog</title>
+	</head>
+	<body>
+		<div th:switch="${posts}">
+      		<div><h2><a th:href="@{/albums}">Albums</a></h2></div>
+      		<div>
+          		<h2>Posts</h2>
+          		<table>
+              		<thead>
+                   	<tr>
+                        <th>Created</th>
+                        <th>Subject</th>
+                        <th>Comments</th>
+                        <th>Action</th>
+                   	</tr>
+              		</thead>
+                <tbody>
+                	<tr th:each="post : ${posts}">
+		                    <td th:text="${post.horarioFormatado}"></td>
+		                    <td th:text="${post.assunto}"></td>
+		                    <td th:text="${post.numeroComentarios}"></td>
+	                    <td>
+	                    	<a th:href="@{/entradaComentario/{idPost}(idPost=${post.id})}">View</a>
+	                    	<a th:href="@{/editPost/{id}(id=${post.id})}">Edit</a>
+	                        <a th:href="@{/deletePost/{id}(id=${post.id})}">Delete</a>
+	                    </td>
+                	</tr>
+            	</tbody>
+      			</table>
+  			</div>      
+    			<p><a href="/createPost">New Post</a></p>
+			</div>
+	</body>
+</html>

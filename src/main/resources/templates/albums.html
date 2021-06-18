@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>frwk blog</title>
+	</head>
+	<body>
+		<div th:switch="${albums}">
+			<div><h2><a th:href="@{/}">Posts</a></h2></div>
+      		<div>
+          		<h2>Albums</h2>
+          		<table>
+              		<thead>
+                   	<tr>
+                        <th>Created</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                   	</tr>
+              		</thead>
+                <tbody>
+                	<tr th:each="album : ${albums}">
+		                    <td th:text="${album.horarioFormatado}"></td>
+		                    <td th:text="${album.nome}"></td>
+		                    <td th:text="${album.descricao}"></td>
+	                    <td>
+	                    	<a th:href="@{/entradaFoto/{idAlbum}(idAlbum=${album.id})}">View</a>
+	                    	<a th:href="@{/editAlbum/{id}(id=${album.id})}">Edit</a>
+	                        <a th:href="@{/deleteAlbum/{id}(id=${album.id})}">Delete</a>
+	                    </td>
+                	</tr>
+            	</tbody>
+      			</table>
+  			</div>      
+    			<p><a href="/createAlbum">New Album</a></p>
+			</div>
+	</body>
+</html>
