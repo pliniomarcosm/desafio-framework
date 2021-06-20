@@ -1,11 +1,9 @@
 package com.desafio.blogfrwk.dao;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.desafio.blogfrwk.bean.Comentario;
 
-@Repository
-public interface ComentarioDAO extends CrudRepository<Comentario, Long>{
+public interface ComentarioDAO extends JpaRepository<Comentario, Long>{
 
 }

@@ -6,13 +6,15 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.desafio.blogfrwk.bean.dto.ComentarioDTO;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Post {
@@ -24,8 +26,8 @@ public class Post {
 	private String conteudo;
 	private Date horario;
 	
-	@OneToMany(mappedBy = "post")
-	@JsonIgnore
+	@OneToMany(mappedBy = "post", fetch = FetchType.EAGER)
+	@JsonManagedReference
 	private List<Comentario> comentarios;
 	
 	@Transient
@@ -33,7 +35,7 @@ public class Post {
 	@Transient
 	private Integer numeroComentarios;
 	@Transient
-	private String resumo;
+	private ComentarioDTO comentarioDTO;
 	
 	public Post() {}
 	
@@ -82,11 +84,14 @@ public class Post {
 	}
 	
 	public Integer getNumeroComentarios() {
-		return this.getComentarios().size();
+		if (this.getComentarios().size() == 0) return 0;
+		else return this.getComentarios().size();
 	}
 	
-	public String getResumo() {
-		if(this.conteudo.length() > 20) return this.conteudo.substring(0, 20);
-		else return this.conteudo.substring(0, this.conteudo.length());
+	public ComentarioDTO getComentarioDTO() {
+		return comentarioDTO;
+	}
+	public void setComentarioDTO(ComentarioDTO comentarioDTO) {
+		this.comentarioDTO = comentarioDTO;
 	}
 }

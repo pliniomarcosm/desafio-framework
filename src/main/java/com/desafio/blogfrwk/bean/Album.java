@@ -6,11 +6,15 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+
+import com.desafio.blogfrwk.bean.dto.FotoDTO;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
  
 @Entity
 public class Album {
@@ -22,13 +26,16 @@ public class Album {
 	private String descricao;
 	private Date horario;
 	
-	@OneToMany(mappedBy = "album")
+	@OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
+	@JsonManagedReference
 	private List<Foto> fotos;
 	
 	@Transient
 	private String horarioFormatado;
 	@Transient
 	private Integer numeroFotos;
+	@Transient
+	private FotoDTO fotoDTO;
 	
 	public Album() {}
 	
@@ -75,8 +82,15 @@ public class Album {
 		return formato.format(this.horario);
 	}
 	
-	public Integer getNumeroComentarios() {
-		return this.getFotos().size();
+	public Integer getNumeroFotos() {
+		if (this.getFotos().size() == 0) return 0;
+		else return this.getFotos().size();
 	}
 	
+	public FotoDTO getFotoDTO() {
+		return fotoDTO;
+	}
+	public void setFotoDTO(FotoDTO fotoDTO) {
+		this.fotoDTO = fotoDTO;
+	}
 }

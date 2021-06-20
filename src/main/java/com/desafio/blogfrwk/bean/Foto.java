@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Foto {
 	@Id
@@ -26,6 +28,7 @@ public class Foto {
 	
 	@ManyToOne
 	@JoinColumn(name = "album")
+	@JsonBackReference
 	private Album album;
 	
 	public Foto() {}
