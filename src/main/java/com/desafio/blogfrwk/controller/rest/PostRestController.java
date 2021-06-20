@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.desafio.blogfrwk.bean.Post;
-import com.desafio.blogfrwk.bean.dto.ComentarioDTO;
 import com.desafio.blogfrwk.dao.PostDAO;
 
 @RestController
@@ -48,13 +47,12 @@ public class PostRestController {
 		postDAO.delete(postDAO.findById(idPost).get());
 	}
 	
-	@GetMapping("/getPostByID")
-	public ComentarioDTO getComentarioDTO(@RequestParam("idPost") Long idPost) {
-		ComentarioDTO comentarioDTO = new ComentarioDTO();
-		Post p = postDAO.findById(idPost).get();
-		comentarioDTO.setPost(p); 
-		return comentarioDTO;
-	}
+	/*
+	 * @GetMapping("/getPostByID") public ComentarioDTO
+	 * getComentarioDTO(@RequestParam("idPost") Long idPost) { ComentarioDTO
+	 * comentarioDTO = new ComentarioDTO(); Post p = postDAO.findById(idPost).get();
+	 * comentarioDTO.setPost(p); return comentarioDTO; }
+	 */
 	
 	
 	
