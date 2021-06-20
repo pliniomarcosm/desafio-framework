@@ -37,23 +37,25 @@
   			</div>
 		</div>
 		<main class="container">
-  			<div class="col-md-16">
-				<form ng-submit="submitPost()">
-					<blockquote class="blockquote"><input type="hidden" ng-model="post.id" id="id"></blockquote>
-					<blockquote class="blockquote">
-          				<p>Assunto: <input type="text" ng-model="post.assunto" id="assunto"/></p>
-        			</blockquote>
-					<h3 class="pb-8 mb-8 fst-italic border-bottom"></h3>
-					<blockquote class="blockquote">
-      					Conteúdo:
-      					<textarea rows="10" cols="100" ng-model="post.conteudo" id="conteudo"></textarea>
-      				</blockquote>
-      				<h3 class="pb-8 mb-8 fst-italic border-bottom"></h3>
-					<blockquote class="blockquote">
-						<input type="submit" value="submit"/>
-					</blockquote>
-				</form>
-			</div>
+  			<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    			<div class="col-md-6 px-0">
+		      		<h1 class="display-4 fst-italic">frmk Blog</h1>
+			      		<p class="lead my-3">Entrada de Posts<br></p>
+			      		<p class="lead mb-0"><p class="text-white fw-bold">Por favor, insira ou altere o post desejado e clique em submit.</a></p>
+    			</div>
+  			</div>
+  			<article class="blog-post">
+				<table class="table">
+					<form ng-submit="submitPost()">
+						<tr><th></th><td><input type="hidden" ng-model="post.id" id="id"></td></tr>
+						<tr><th>Assunto:</th><td><input type="text" ng-model="post.assunto" id="assunto" style="width: 860px"/></td></tr>
+						<h3 class="pb-8 mb-8 fst-italic border-bottom"></h3>
+						<tr><th>Conteúdo:</th><td><textarea rows="6" cols="120" ng-model="post.conteudo" id="conteudo"></textarea></td></tr>
+	      				<h3 class="pb-8 mb-8 fst-italic border-bottom"></h3>
+						<tr><th>Enviar Post:</th><td><input type="submit" value="submit"/></td></tr>
+					</form>
+				</table>
+			</article>
 		</main>
 	</body>
 </html>

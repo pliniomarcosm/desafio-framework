@@ -17,20 +17,48 @@
 		
 	</head>
 <body>
-	<a href="albumEntrada">Novo Álbum</a>
-	<a href="/">Posts</a>
-	<table ng-controller="IndexAlbumController">
-		<tr><th>Criação</th><th>Nome</th><th>Descrição</th><th>Fotos<th>Ação</th></tr>
-        <tr ng-repeat="album in albuns">
-           <td> {{ album.horarioFormatado }} </td>
-           <td><a href="" ng-click="detalheAlbum(album)">{{ album.nome }}</a></td>
-           <td> {{ album.descricao }} </td>
-           <td> {{ album.numeroFotos }} </td>
-           <td>
-	           <a href="" ng-click="editAlbum(album)">Alterar</a>
-			   <a href="" ng-click="deleteAlbum(album)">Excluir</a>
-           </td>
-        </tr>  
-	</table>
-</body>
+	
+	<div class="container">
+			<header class="blog-header py-3">
+	   			<div class="row flex-nowrap justify-content-between align-items-center">
+	      			<div class="col-4 pt-1">
+	        			<a class="link-secondary" href="#"></a>
+	      			</div>
+				    <div class="col-4 text-center">
+				    	<a class="blog-header-logo text-dark" href="#"></a>
+				    </div>
+	   			</div>
+			</header>
+			<div class="nav-scroller py-1 mb-2">
+	  			<nav class="nav d-flex">
+					<a class="p-2 link-secondary" href="albumEntrada">Novo Álbum</a>
+		      		<a class="p-2 link-secondary" href="/">Posts</a>
+		      	</nav>
+			</div>
+			<main class="container">
+	  			<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+	    			<div class="col-md-6 px-0">
+			      		<h1 class="display-4 fst-italic">frmk Blog</h1>
+			      		<p class="lead my-3">Um desafio técnico para Plinio Marcos Mendonça.<br>linkedin.com/in/plinio-backendjr/</p>
+			      		<p class="lead mb-0"><p class="text-white fw-bold">Você pode encontrar tudo sobre este projeto em github.com/pliniomarcosm/desafio-framework</a></p>
+	    			</div>
+	  			</div>
+		      	<article class="blog-post">
+					<table ng-controller="IndexAlbumController" class="table">
+						<tr><th>Criação</th><th>Nome</th><th>Descrição</th><th>Fotos<th>Ação</th></tr>
+				        <tr ng-repeat="album in albuns">
+				           <td> {{ album.horarioFormatado }} </td>
+				           <td><a href="" ng-click="detalheAlbum(album)">{{ album.nome }}</a></td>
+				           <td> {{ album.descricao }} </td>
+				           <td> {{ album.numeroFotos }} </td>
+				           <td>
+					           <a href="" ng-click="editAlbum(album)">Alterar</a>
+							   <a href="" ng-click="deleteAlbum(album)">Excluir</a>
+				           </td>
+				        </tr>  
+					</table>
+				</article>
+			</main>
+		</div>
+	</body>
 </html>

@@ -17,22 +17,46 @@
 		
 	</head>
 	<body ng-app="Album" ng-controller="DetalheAlbumController">
-		<div>
-			<a href="/indexAlbuns">Álbuns</a>
-			<form ng-submit="submitFoto(album)">
-				<table>
-					<tr><td>Nome:</td><td>{{ album.nome }}</td></tr>
-					<tr><td>Descrição:</td><td>{{ album.descricao }}</td></tr>
-					<tr><td colspan="2">Fotos:</td></tr>
+		<div class="container">
+			<header class="blog-header py-3">
+    			<div class="row flex-nowrap justify-content-between align-items-center">
+	      			<div class="col-4 pt-1">
+	        			<a class="link-secondary" href="#"></a>
+	      			</div>
+				    <div class="col-4 text-center">
+				    	<a class="blog-header-logo text-dark" href="#"></a>
+				    </div>
+    			</div>
+ 			</header>
+ 			<div class="nav-scroller py-1 mb-2">
+    			<nav class="nav d-flex">
+    				<a class="p-2 link-secondary" href="/">Posts</a>
+		      		<a class="p-2 link-secondary" href="indexAlbuns">Álbuns   </a>
+		      	</nav>
+		    </div>
+		</div>
+		<main class="container">
+  			<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    			<div class="col-md-6 px-0">
+		      		<h1 class="display-4 fst-italic">frmk Blog</h1>
+			      		<p class="lead my-3">O álbum e suas fotos<br></p>
+			      		<p class="lead mb-0"><p class="text-white fw-bold">Aqui você pode conferir o álbum selecionado e incluir fotos nele.</a></p>
+    			</div>
+  			</div>
+			<article class="blog-post">
+				<table class="table" style="table-layout:fixed;">
+					<form ng-submit="submitFoto(album)">
+					<tr><th>Nome:</th><td>{{ album.nome }}</td></tr>
+					<tr><th>Descrição:</th><td style="word-wrap:break-word;">{{ album.descricao }}</td></tr>
+					<tr><th colspan="2">Fotos:</td></tr>
 					<tr ng-repeat="foto in album.fotos">
-						<td> {{ foto.descricao }} </td>
+						<td style="word-wrap:break-word;"> {{ foto.descricao }} </td>
 						<td> {{ foto.horarioFormatado }} </td>
 					</tr>
-					
-					
-						<tr><td>ID:</td><td><input type="hidden" ng-model="album.id"></input></td></tr>
-						<tr><td>Nova Foto:</td><td><textarea rows="10" cols="50" ng-model="album.fotoDTO.fotoDescricao"></textarea></td></tr>
-						<tr><td>Enviar Foto:</td><td><input type="submit" value="submit"></td></tr>	
+					<tr><th></th><td><input type="hidden" ng-model="album.id"></input></td></tr>
+					<tr><th>Descrição:</td><td style="word-wrap:break-word;"><textarea rows="2" cols="75" ng-model="album.fotoDTO.fotoDescricao"></textarea></td></tr>
+					<tr><th>Selecionar arquivo</th><td><input type="file" name="arquivoFoto"/></td></tr>
+					<tr><th>Enviar Foto:</td><td><input type="submit" value="submit"></td></tr>	
 					
 				</table>
 			</form>

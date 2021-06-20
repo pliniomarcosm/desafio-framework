@@ -17,25 +17,46 @@
 		
 	</head>
 	<body ng-app="Post" ng-controller="DetalhePostController">
-		<div>
-			<a href="/">Posts</a>
-			<form ng-submit="submitComentario(post)">
-				<table>
-					<tr><td>Assunto:</td><td>{{ post.assunto }}</td></tr>
-					<tr><td>Conteúdo:</td><td>{{ post.conteudo }}</td></tr>
-					<tr><td colspan="2">Comentários:</td></tr>
+		<div class="container">
+			<header class="blog-header py-3">
+    			<div class="row flex-nowrap justify-content-between align-items-center">
+	      			<div class="col-4 pt-1">
+	        			<a class="link-secondary" href="#"></a>
+	      			</div>
+				    <div class="col-4 text-center">
+				    	<a class="blog-header-logo text-dark" href="#"></a>
+				    </div>
+    			</div>
+ 			</header>
+ 			<div class="nav-scroller py-1 mb-2">
+    			<nav class="nav d-flex">
+    				<a class="p-2 link-secondary" href="/">Posts</a>
+		      		<a class="p-2 link-secondary" href="indexAlbuns">Álbuns   </a>
+		      	</nav>
+		    </div>
+		</div>
+		<main class="container">
+  			<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    			<div class="col-md-6 px-0">
+		      		<h1 class="display-4 fst-italic">frmk Blog</h1>
+			      		<p class="lead my-3">O post e seu comentário.<br></p>
+			      		<p class="lead mb-0"><p class="text-white fw-bold">Aqui você pode conferir o post desejado e incluir cometários nele.</a></p>
+    			</div>
+  			</div>
+			<article class="blog-post">
+				<table class="table" style="table-layout:fixed;">
+					<form ng-submit="submitComentario(post)">
+					<tr><th>Assunto:</th><td>{{ post.assunto }}</td></tr>
+					<tr><th>Conteúdo:</th><td style="word-wrap:break-word;">{{ post.conteudo }}</td></tr>
+					<tr><th colspan="2">Comentários:</th></tr>
 					<tr ng-repeat="comentario in post.comentarios">
-						<td> {{ comentario.conteudo }} </td>
+						<td style="word-wrap:break-word;"> {{ comentario.conteudo }} </td>
 						<td> {{ comentario.horarioFormatado }} </td>
 					</tr>
-					
-					
-						<tr><td>ID:</td><td><input type="hidden" ng-model="post.id"></input></td></tr>
-						<tr><td>Novo Comentário:</td><td><textarea rows="10" cols="50" ng-model="post.comentarioDTO.comentarioConteudo"></textarea></td></tr>
-						<tr><td>Enviar Comentário:</td><td><input type="submit" value="submit"></td></tr>	
-					
-				</table>
+					<tr><th></th><td><input type="hidden" ng-model="post.id"></input></td></tr>
+					<tr><th>Novo Comentário:</th><td><textarea rows="4" cols="75" ng-model="post.comentarioDTO.comentarioConteudo"></textarea></td></tr>
+					<tr><th>Enviar Comentário:</th><td><input type="submit" value="submit"></td></tr>	
 			</form>
-		</div>
+		</table>
 	</body>
 </html>

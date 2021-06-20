@@ -18,13 +18,41 @@
 		<title>frwk blog</title>
 	</head>
 	<body ng-app="Album" ng-controller="AlbumController">
-		<a href="/indexAlbuns">Álbuns</a>
-		<table>
+		<div class="container">
+			<header class="blog-header py-3">
+    			<div class="row flex-nowrap justify-content-between align-items-center">
+	      			<div class="col-4 pt-1">
+	        			<a class="link-secondary" href="#"></a>
+	      			</div>
+				    <div class="col-4 text-center">
+				    	<a class="blog-header-logo text-dark" href="#"></a>
+				    </div>
+    			</div>
+ 			</header>
+ 			<div class="nav-scroller py-1 mb-2">
+    			<nav class="nav d-flex">
+		      		<a class="p-2 link-secondary" href="/indexAlbuns">Álbuns</a>
+		      		<a class="p-2 link-secondary" href="/">Posts</a>
+		      	</nav>
+		    </div>
+		</div>
+		<main class="container">
+  			<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    			<div class="col-md-6 px-0">
+		      		<h1 class="display-4 fst-italic">frmk Blog</h1>
+			      		<p class="lead my-3">Entrada de Álbuns<br></p>
+			      		<p class="lead mb-0"><p class="text-white fw-bold">Por favor, insira ou altere o álbum desejado e clique em submit.</a></p>
+    			</div>
+  			</div>
+  		<article class="blog-post">
+		<table class="table">
 			<form ng-submit="submitAlbum()">
-				<tr><td><input type="hidden" ng-model="album.id" id="id"></td></tr>
-				<tr><td>Nome:</td><td><input type="text" ng-model="album.nome" id="nome"></td></tr>
-				<tr><td>Descrição:</td><td><input type="text" ng-model="album.descricao" id="descricao"></td></tr>
-				<tr><td>Enviar Album:</td><td><input type="submit" value="submit"></td></tr>
+				<tr><th></th><td><input type="hidden" ng-model="album.id" id="id"></td></tr>
+				<tr><th>Nome:</th><td><input type="text" ng-model="album.nome" id="nome" style="width: 860px"></td></tr>
+				<h3 class="pb-8 mb-8 fst-italic border-bottom"></h3>
+				<tr><th>Descrição:</th><td><input type="text" ng-model="album.descricao" id="descricao" style="width: 860px"></td></tr>
+				<h3 class="pb-8 mb-8 fst-italic border-bottom"></h3>
+				<tr><th>Enviar Album:</th><td><input type="submit" value="submit"></td></tr>
 			</form>
 		</table>
 	</body>
